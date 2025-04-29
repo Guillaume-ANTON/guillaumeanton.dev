@@ -1,0 +1,18 @@
+{
+    "header": {
+      "title": "Bienvenue sur mon portfolio"
+    },
+    "about": {
+      "title": "À propos de moi",
+      "description": "Je suis un développeur passionné par Python et le web."
+    },
+    "skills": {
+      "title": "Compétences"
+    },
+    "projects": {
+      "title": "Projets"
+    },
+    "footer": {
+      "contact": "Contactez-moi"
+    }
+  }

@@ -1,0 +1,18 @@
+{
+    "header": {
+      "title": "Welcome to my portfolio"
+    },
+    "about": {
+      "title": "About me",
+      "description": "I'm a developer passionate about Python and the web."
+    },
+    "skills": {
+      "title": "Skills"
+    },
+    "projects": {
+      "title": "Projects"
+    },
+    "footer": {
+      "contact": "Contact me"
+    }
+  }
