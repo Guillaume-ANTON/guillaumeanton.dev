@@ -1,42 +1,12 @@
-import { useEffect, useState } from 'react';
-import Header from './components/Header';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Footer from './components/Footer';
-
-import fr from './i18n/fr.json';
-import en from './i18n/en.json';
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './index.css'
 
 function App() {
-  const [texts, setTexts] = useState(en); // par défaut anglais
-
-  useEffect(() => {
-    const language = navigator.language || navigator.userLanguage;
-    if (language.startsWith('fr')) {
-      setTexts(fr);
-    } else {
-      setTexts(en);
-    }
-  }, []);
-
   return (
-    <div className="pt-20">
-      <Header texts={texts.header} />
-      <main className="space-y-24">
-        <section id="about">
-          <About texts={texts.about} />
-        </section>
-        <section id="skills">
-          <Skills texts={texts.skills} />
-        </section>
-        <section id="projects">
-          <Projects texts={texts.projects} />
-        </section>
-        <section id="footer">
-          <Footer texts={texts.footer} />
-        </section>
-      </main>
+    <div className="bg-blue-600 text-white text-2xl p-6">
+      🎉 Tailwind !
     </div>
   );
 }
