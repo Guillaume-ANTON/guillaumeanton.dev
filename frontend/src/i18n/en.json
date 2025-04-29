@@ -1,7 +1,10 @@
 {
     "header": {
-      "title": "Welcome to my portfolio"
-    },
+      "about": "About",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact"
+  },
     "about": {
       "title": "About me",
       "description": "I'm a developer passionate about Python and the web."
