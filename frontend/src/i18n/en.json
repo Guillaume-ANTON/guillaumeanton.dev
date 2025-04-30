@@ -1,0 +1,21 @@
+{
+    "header": {
+      "about": "About",
+      "skills": "Skills",
+      "projects": "Projects",
+      "contact": "Contact"
+  },
+    "about": {
+      "title": "hello(): I'm",
+      "description": "I'm a developer passionate about Python and the web."
+    },
+    "skills": {
+      "title": "Skills"
+    },
+    "projects": {
+      "title": "Projects"
+    },
+    "footer": {
+      "contact": "Contact me"
+    }
+  }

@@ -1,0 +1,21 @@
+{
+    "header": {
+      "about": "À propos",
+      "skills": "Compétences",
+      "projects": "Projets",
+      "contact": "Contact"
+    },
+    "about": {
+      "title": "hello(): I'm",
+      "description": "Je suis un développeur passionné..."
+    },
+    "skills": {
+      "title": "Compétences"
+    },
+    "projects": {
+      "title": "Projets"
+    },
+    "footer": {
+      "contact": "Contactez-moi"
+    }
+  }
