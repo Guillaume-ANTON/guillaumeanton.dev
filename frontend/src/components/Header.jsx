@@ -1,15 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 
 function Header({ texts }) {
   const [isOpen, setIsOpen] = useState(false);
+  const [suffix, setSuffix] = useState('.python');
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setSuffix('.dev');
+    }, 5000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <header className="fixed w-full bg-white shadow-md z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo */}
-        <div className="text-3xl font-bold text-gray-800">
-          <span className="text-blue-600">Guillaume</span>ANTON
+        <div className="text-3xl font-bold text-gray-800 flex items-baseline gap-1">
+        <span className="text-blue-600">Guillaume</span>ANTON
+            <span
+            key={suffix}
+            className="text-blue-600 inline-block w-[6ch] transition-all duration-700 ease-in-out opacity-100 translate-y-0 animate-fade-in"
+            >
+            {suffix}
+            </span>
         </div>
 
         {/* Desktop Nav */}
@@ -28,6 +42,21 @@ function Header({ texts }) {
           </Link>
         </nav>
 
+        {/* Contact + Avatar */}
+        <div className="flex items-center gap-x-4">
+          <button
+            type="button"
+            className="text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5"
+          >
+            {texts.contactme}
+          </button>
+
+          <div className="relative flex items-center h-10">
+            <img className="w-10 h-10 rounded-full" src="/pictures/about.png" alt="Avatar" />
+            <span className="absolute bottom-0 left-7 w-3.5 h-3.5 bg-green-400 border-2 border-white rounded-full"></span>
+          </div>
+        </div>
+
         {/* Burger - Mobile */}
         <div className="md:hidden">
           <button
@@ -37,7 +66,7 @@ function Header({ texts }) {
             {isOpen ? '✕' : '☰'}
           </button>
         </div>
-      </div>
+    </div>
 
       {/* Mobile Nav */}
       {isOpen && (
