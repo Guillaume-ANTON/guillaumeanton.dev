@@ -7,8 +7,14 @@
       "contactme": "Contact me !"
   },
     "about": {
-      "title": "hello(): I'm",
-      "description": "I'm a developer passionate about Python and the web."
+      "title": "hello():",
+      "description": "I’m Guillaume ANTON, a Python developer passionate about building efficient, automated, and robust solutions.",
+      "talk": "Let's Talk!"
+    },
+    "aboutme": {
+      "desc": "Hi! I'm Guillaume, a passionate Python developer who enjoys turning ideas into efficient, automated, and reliable software solutions. With a strong focus on clean code and problem-solving, I love creating tools and applications that simplify complex tasks and improve productivity. Whether it's scripting, web development, or working with data, I'm always eager to learn and take on new challenges. My goal is to build meaningful software that makes a difference.",
+      "desc2": "Let's connect and build something great together!",
+      "talk": "Parlons-en!"
     },
     "skills": {
       "title": "Skills"

@@ -7,8 +7,14 @@
       "contactme": "Contactez moi !"
     },
     "about": {
-      "title": "hello(): I'm",
-      "description": "Je suis un développeur passionné..."
+      "title": "hello()",
+      "description": "Je suis Guillaume ANTON, développeur Python, je conçois des outils intelligents et performants pour simplifier le quotidien et booster la productivité.",
+      "talk": "Parlons-en!"
+    },
+    "aboutme": {
+      "desc": "Bonjour, je suis Guillaume, un développeur Python passionné qui aime transformer ses idées en solutions logicielles efficaces, automatisées et fiables. Avec un fort accent sur le code propre et la résolution de problèmes, j'aime créer des outils et des applications qui simplifient les tâches complexes et améliorent la productivité. Qu'il s'agisse de scripts, de développement web ou de travail avec des données, je suis toujours prêt à apprendre et à relever de nouveaux défis. Mon objectif est de créer des logiciels utiles qui font la différence.",
+      "desc2": "Mettons-nous en contact et construisons quelque chose de grand ensemble !",
+      "talk": "Parlons-en!"
     },
     "skills": {
       "title": "Compétences"
