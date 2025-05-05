@@ -20,7 +20,18 @@
       "title": "Compétences"
     },
     "projects": {
-      "title": "Projets"
+      "scraper": {
+        "title": "Web Scraper Interactif",
+        "description": "Ce projet vous permet de scraper dynamiquement n’importe quel site web. Entrez une URL, sélectionnez les balises HTML à extraire (titres, images, liens...), et récupérez le tout au format CSV.",
+        "info": "Ce projet est intégré à ce site web.",
+        "tool": {
+        "placeholder": "https://exemple.com",
+          "submit": "Lancer le scraping",
+          "loading": "Scraping...",
+          "download": "📥 Télécharger le fichier généré",
+          "error": "Une erreur est survenue lors du scraping."
+        }
+      }
     },
     "footer": {
       "contact": "Contactez-moi"

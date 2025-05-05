@@ -20,9 +20,21 @@
       "title": "Skills"
     },
     "projects": {
-      "title": "Projects"
-    },
+    "scraper": {
+      "title": "Interactive Web Scraper",
+      "description": "This project lets you dynamically scrape any website. Enter a URL, select the HTML tags you want to extract (titles, images, links, etc.), and retrieve everything in CSV format.",
+      "info": "This project is integrated into this website.",
+      "tool": {
+        "placeholder": "https://exemple.com",
+        "submit": "Start scraping",
+        "loading": "Scraping...",
+        "download": "📥 Download the generated file",
+        "error": "An error has occurred during scraping."
+      }
+    }
+  },
     "footer": {
       "contact": "Contact me"
     }
+    
   }

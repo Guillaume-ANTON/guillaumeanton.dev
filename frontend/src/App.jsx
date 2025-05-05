@@ -6,6 +6,7 @@ import fr from './i18n/fr.json';
 import en from './i18n/en.json';
 import Aboutme from './components/Aboutme';
 import Skills from './components/Skills';
+import Projects from './components/Project';
 
 function App() {
   const [texts, setTexts] = useState(fr);
@@ -27,6 +28,7 @@ function App() {
       </main>
       <Aboutme texts={texts.aboutme}/>
       <Skills texts={texts.skills}/>
+      <Projects texts={texts.projects} />
     </>
   );
 }
