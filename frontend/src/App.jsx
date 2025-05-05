@@ -5,6 +5,7 @@ import About from './components/About';
 import fr from './i18n/fr.json';
 import en from './i18n/en.json';
 import Aboutme from './components/Aboutme';
+import Skills from './components/Skills';
 
 function App() {
   const [texts, setTexts] = useState(fr);
@@ -25,6 +26,7 @@ function App() {
         <About texts={texts.about} />
       </main>
       <Aboutme texts={texts.aboutme}/>
+      <Skills texts={texts.skills}/>
     </>
   );
 }

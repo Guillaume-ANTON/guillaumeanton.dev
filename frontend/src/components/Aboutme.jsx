@@ -5,7 +5,7 @@ function Aboutme({ texts }) {
             <div class="max-w-screen-lg text-gray-500 sm:text-lg dark:text-gray-400">
                 <h2 className="flex items-center text-2xl font-mono text-gray-800 mb-6">
                     <span className="whitespace-nowrap">def AboutMe():</span>
-                    <span className="ml-4 h-0.5 bg-gray-300 flex-grow"></span>
+                    <span className="ml-4 h-0.5 w-full max-w-[300px] bg-gray-300"></span>
                 </h2>
                 <p className="mb-4 font-light">{texts.desc}</p>
                 <p className="mb-4 font-medium">{texts.desc2}</p>
