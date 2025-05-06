@@ -1,4 +1,5 @@
 import WebScraper from "./projects/WebScraper";
+import GitHubAnalyzer from "./projects/GitHubAnalyzer";
 
 function Projects({ texts }) {
     return (
@@ -12,6 +13,9 @@ function Projects({ texts }) {
             </div>
             <div className="space-y-12">
                 <WebScraper texts={texts.scraper}/>
+            </div>
+            <div className="space-y-12">
+                <GitHubAnalyzer />
             </div>
         </div>
     </section>

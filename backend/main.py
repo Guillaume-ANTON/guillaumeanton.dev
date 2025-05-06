@@ -28,6 +28,7 @@ class GitHubStats(BaseModel):
     total_stars: int
     most_used_language: str
     recent_commits: int
+    languages_breakdown: dict
 
 @app.post("/api/scrape")
 async def scrape(data: ScrapeRequest):
@@ -67,6 +68,8 @@ def analyze_github_user(username: str):
 
     language_counter = Counter(repo.get("language") for repo in repos_data if repo.get("language"))
     most_used_language = language_counter.most_common(1)[0][0] if language_counter else "Unknown"
+    languages_breakdown = dict(language_counter)
+
 
     recent_commits = 0
     for event in events_data:
@@ -78,5 +81,6 @@ def analyze_github_user(username: str):
         public_repos=public_repos,
         total_stars=total_stars,
         most_used_language=most_used_language,
-        recent_commits=recent_commits
+        recent_commits=recent_commits,
+        languages_breakdown =language_counter
     )
