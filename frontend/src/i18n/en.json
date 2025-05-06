@@ -31,6 +31,19 @@
         "download": "📥 Download the generated file",
         "error": "An error has occurred during scraping."
       }
+    },
+    "github": {
+      "title": "GitHub Profile Analyzer",
+      "description": "Enter a GitHub username to obtain statistics such as the number of repositories, stars, the date of the last commit and the most frequently used language.",
+      "info": "The data is provided in real time via the GitHub API.",
+      "placeholder": "ex:Guillaume-Anton",
+      "submit": "Analyse",
+      "loading": "Loading...",
+      "repository": "Repositories",
+      "commit": "Last commit",
+      "stars": "Stars",
+      "language": "Main language",
+      "error": "User not found or server error."
     }
   },
     "footer": {

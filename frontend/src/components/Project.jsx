@@ -15,7 +15,7 @@ function Projects({ texts }) {
                 <WebScraper texts={texts.scraper}/>
             </div>
             <div className="space-y-12">
-                <GitHubAnalyzer />
+                <GitHubAnalyzer texts={texts.github}/>
             </div>
         </div>
     </section>

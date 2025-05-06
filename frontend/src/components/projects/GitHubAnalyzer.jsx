@@ -7,7 +7,7 @@ const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884d8', '#FF69B4'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000'
 
-function GitHubAnalyzer() {
+function GitHubAnalyzer( {texts} ) {
   const [username, setUsername] = useState('')
   const [data, setData] = useState(null)
   const [loading, setLoading] = useState(false)
@@ -23,7 +23,7 @@ function GitHubAnalyzer() {
       const res = await axios.get(`${API_URL}/api/github?username=${username}`)
       setData(res.data)
     } catch (err) {
-      setError("Utilisateur non trouvé ou erreur serveur.")
+      setError(texts.error)
     } finally {
       setLoading(false)
     }
@@ -37,14 +37,13 @@ function GitHubAnalyzer() {
         {/* Bloc description */}
         <div className="md:w-1/2">
           <h3 className="text-lg font-bold text-gray-800 flex items-center gap-2 mb-2">
-            <span className="text-xl">🐙</span> GitHub Profile Analyzer
+            <span className="text-xl">🐙</span> {texts.title}
           </h3>
           <p className="text-sm text-gray-600 mb-4">
-            Entrez un nom d'utilisateur GitHub pour obtenir des statistiques comme le nombre de
-            dépôts, d'étoiles, de commits récents, ainsi que son langage le plus utilisé.
+            {texts.description}
           </p>
           <p className="text-xs text-gray-400 italic">
-            Les données sont fournies en temps réel via l'API GitHub.
+            {texts.info}
           </p>
         </div>
 
@@ -55,7 +54,7 @@ function GitHubAnalyzer() {
               type="text"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              placeholder="ex: guillaumeanton"
+              placeholder={texts.placeholder}
               className="w-full px-4 py-2 border border-gray-300 rounded"
               required
             />
@@ -63,7 +62,7 @@ function GitHubAnalyzer() {
               type="submit"
               className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
             >
-              {loading ? 'Chargement...' : 'Analyser'}
+              {loading ? texts.loading : texts.submit}
             </button>
           </form>
           {error && <p className="text-red-500">{error}</p>}
@@ -78,19 +77,19 @@ function GitHubAnalyzer() {
             <img src={data.avatar_url} alt="avatar" className="w-20 h-20 rounded-full mb-4 border" />
             <div className="grid grid-cols-2 gap-4 mt-2 w-full">
               <div className="bg-gray-50 p-4 rounded shadow text-center">
-                <p className="text-sm text-gray-500">Repos publics</p>
+                <p className="text-sm text-gray-500">{texts.repository}</p>
                 <p className="text-lg font-bold">{data.public_repos}</p>
               </div>
               <div className="bg-gray-50 p-4 rounded shadow text-center">
-                <p className="text-sm text-gray-500">Dernier commit</p>
+                <p className="text-sm text-gray-500">{texts.commit}</p>
                 <p className="text-lg font-bold">{data.last_commit}</p>
               </div>
               <div className="bg-gray-50 p-4 rounded shadow text-center">
-                <p className="text-sm text-gray-500">Étoiles totales</p>
+                <p className="text-sm text-gray-500">{texts.stars}</p>
                 <p className="text-lg font-bold">{data.total_stars}</p>
               </div>
               <div className="bg-gray-50 p-4 rounded shadow text-center">
-                <p className="text-sm text-gray-500">Langage principal</p>
+                <p className="text-sm text-gray-500">{texts.language}</p>
                 <p className="text-lg font-bold">{data.most_used_language}</p>
               </div>
             </div>

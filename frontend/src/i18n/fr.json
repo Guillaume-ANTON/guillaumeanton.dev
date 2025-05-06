@@ -31,6 +31,18 @@
           "download": "📥 Télécharger le fichier généré",
           "error": "Une erreur est survenue lors du scraping."
         }
+      },"github": {
+        "title": "GitHub Profile Analyzer",
+        "description": "Entrez un nom d'utilisateur GitHub pour obtenir des statistiques comme le nombre de repository, d'étoiles, la date du dernier commit, ainsi que son langage le plus utilisé.",
+        "info": "Les données sont fournies en temps réel via l'API GitHub.",
+        "placeholder": "ex:Guillaume-Anton",
+        "submit": "Analyser",
+        "loading": "Chargement...",
+        "repository": "Repositories",
+        "commit": "Dernier commit",
+        "stars": "Étoiles",
+        "language": "Langage principal",
+        "error": "Utilisateur non trouvé ou erreur serveur."
       }
     },
     "footer": {
