@@ -5,6 +5,7 @@ from scraper import run_scraper
 import uuid
 import requests
 from collections import Counter
+from datetime import datetime, timezone
 
 app = FastAPI()
 
@@ -27,7 +28,7 @@ class GitHubStats(BaseModel):
     public_repos: int
     total_stars: int
     most_used_language: str
-    recent_commits: int
+    last_commit: str
     languages_breakdown: dict
 
 @app.post("/api/scrape")
@@ -49,7 +50,6 @@ def download(file: str):
 def analyze_github_user(username: str):
     user_url = f"{GITHUB_API}/users/{username}"
     repos_url = f"{GITHUB_API}/users/{username}/repos"
-    events_url = f"{GITHUB_API}/users/{username}/events"
 
     user_resp = requests.get(user_url)
     if user_resp.status_code != 200:
@@ -59,9 +59,6 @@ def analyze_github_user(username: str):
     repos_resp = requests.get(repos_url)
     repos_data = repos_resp.json() if repos_resp.status_code == 200 else []
 
-    events_resp = requests.get(events_url)
-    events_data = events_resp.json() if events_resp.status_code == 200 else []
-
     avatar = user_data.get("avatar_url")
     public_repos = user_data.get("public_repos", 0)
     total_stars = sum(repo.get("stargazers_count", 0) for repo in repos_data)
@@ -70,17 +67,30 @@ def analyze_github_user(username: str):
     most_used_language = language_counter.most_common(1)[0][0] if language_counter else "Unknown"
     languages_breakdown = dict(language_counter)
 
+    # Date du dernier commit pushé
+    pushed_dates = [
+        repo.get("pushed_at") for repo in repos_data if repo.get("pushed_at")
+    ]
+    if pushed_dates:
+        last_pushed = max(datetime.fromisoformat(p.replace("Z", "+00:00")) for p in pushed_dates)
+        delta_days = (datetime.now(timezone.utc) - last_pushed).days
 
-    recent_commits = 0
-    for event in events_data:
-        if event["type"] == "PushEvent":
-            recent_commits += len(event["payload"].get("commits", []))
+        if delta_days == 0:
+            last_commit = "Aujourd'hui"
+        elif delta_days == 1:
+            last_commit = "Hier"
+        elif delta_days == 2:
+            last_commit = "Avant-hier"
+        else:
+            last_commit = f"Il y a {delta_days} jours"
+    else:
+        last_commit = "Inconnu"
 
     return GitHubStats(
         avatar_url=avatar,
         public_repos=public_repos,
         total_stars=total_stars,
         most_used_language=most_used_language,
-        recent_commits=recent_commits,
-        languages_breakdown =language_counter
+        last_commit=last_commit,
+        languages_breakdown=languages_breakdown
     )

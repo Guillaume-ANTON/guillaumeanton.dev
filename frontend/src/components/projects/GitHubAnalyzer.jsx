@@ -82,8 +82,8 @@ function GitHubAnalyzer() {
                 <p className="text-lg font-bold">{data.public_repos}</p>
               </div>
               <div className="bg-gray-50 p-4 rounded shadow text-center">
-                <p className="text-sm text-gray-500">Commits récents</p>
-                <p className="text-lg font-bold">{data.recent_commits}</p>
+                <p className="text-sm text-gray-500">Dernier commit</p>
+                <p className="text-lg font-bold">{data.last_commit}</p>
               </div>
               <div className="bg-gray-50 p-4 rounded shadow text-center">
                 <p className="text-sm text-gray-500">Étoiles totales</p>
