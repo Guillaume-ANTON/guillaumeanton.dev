@@ -14,7 +14,7 @@ function Header({ texts }) {
   }, []);
 
   return (
-    <header className="fixed w-full bg-white shadow-md z-50">
+    <header className="w-full bg-white shadow-md z-50">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
         <div className="text-3xl font-bold text-gray-800 flex items-baseline gap-1">
         <span className="text-blue-600">Guillaume</span>ANTON
@@ -28,7 +28,7 @@ function Header({ texts }) {
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex space-x-8 text-gray-700 font-semibold text-lg">
-          <Link to="about" smooth duration={500} className="cursor-pointer hover:text-blue-500">
+          <Link to="aboutme" smooth duration={500} className="cursor-pointer hover:text-blue-500">
             {texts.about}
           </Link>
           <Link to="skills" smooth duration={500} className="cursor-pointer hover:text-blue-500">
@@ -36,9 +36,6 @@ function Header({ texts }) {
           </Link>
           <Link to="projects" smooth duration={500} className="cursor-pointer hover:text-blue-500">
             {texts.projects}
-          </Link>
-          <Link to="contact" smooth duration={500} className="cursor-pointer hover:text-blue-500">
-            {texts.contact}
           </Link>
         </nav>
 

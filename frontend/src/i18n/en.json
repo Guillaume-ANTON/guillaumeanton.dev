@@ -46,6 +46,21 @@
       "error": "User not found or server error."
     }
   },
+  "contact": {
+      "contact": "Get in Touch",
+      "title": "Let's Chat, Contact with Me!",
+      "description": "Got a project or a question? Send me a message, I’ll get back to you within 24 hours!",
+      "firstname": "First name",
+      "lastname": "Last name",
+      "mail": "your@mail.com",
+      "message": "Your message",
+      "button": "Send Message",
+      "phone": "Phone",
+      "location": "Location",
+      "txt": "Based in Madrid 🇪🇸",
+      "send": "✅Message sent!",
+      "error": "❌An error has occurred"  
+    },
     "footer": {
       "contact": "Contact me"
     }

@@ -45,6 +45,21 @@
         "error": "Utilisateur non trouvé ou erreur serveur."
       }
     },
+    "contact": {
+      "contact": "Entrer en Contact",
+      "title": "Discutons, contactez-moi!",
+      "description": "Un projet ou une question ? Envoyez-moi un message, je vous répondrai sous 24h !",
+      "firstname": "Prénom",
+      "lastname": "Nom",
+      "mail": "votre@mail.com",
+      "message": "Votre message",
+      "button": "Envoyer le message",
+      "phone": "Téléphone",
+      "location": "Localisation",
+      "txt": "Basé à Madrid 🇪🇸",
+      "send": "✅Message envoyé!",
+      "error": "❌Une erreur est survenue"  
+    },
     "footer": {
       "contact": "Contactez-moi"
     }
