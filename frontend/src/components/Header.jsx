@@ -27,7 +27,7 @@ function Header({ texts }) {
         </div>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex space-x-8 text-gray-700 font-semibold text-lg">
+        <nav className="hidden lg:flex space-x-8 text-gray-700 font-semibold text-lg">
           <Link to="aboutme" smooth duration={500} className="cursor-pointer hover:text-blue-500">
             {texts.about}
           </Link>
@@ -40,7 +40,7 @@ function Header({ texts }) {
         </nav>
 
         {/* Contact + Avatar */}
-        <div className="flex items-center gap-x-4">
+        <div className="hidden md:flex items-center gap-x-4">
           <button
             type="button"
             className="text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-5 py-2.5">
@@ -54,11 +54,10 @@ function Header({ texts }) {
         </div>
 
         {/* Burger - Mobile */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="text-3xl text-gray-800 focus:outline-none"
-          >
+            className="text-3xl text-gray-800 focus:outline-none">
             {isOpen ? '✕' : '☰'}
           </button>
         </div>
@@ -66,7 +65,7 @@ function Header({ texts }) {
 
       {/* Mobile Nav */}
       {isOpen && (
-        <div className="md:hidden bg-white px-6 pb-4 shadow-md space-y-4 text-gray-700 text-lg font-semibold">
+        <div className="lg:hidden bg-white px-6 pb-4 shadow-md space-y-4 text-gray-700 text-lg font-semibold">
           <Link to="about" smooth duration={500} className="block hover:text-blue-500" onClick={() => setIsOpen(false)}>
             {texts.about}
           </Link>
@@ -79,6 +78,18 @@ function Header({ texts }) {
           <Link to="contact" smooth duration={500} className="block hover:text-blue-500" onClick={() => setIsOpen(false)}>
             {texts.contact}
           </Link>
+          <div className="md:hidden flex items-center gap-4 mt-4">
+            <button
+              type="button"
+              className="text-white bg-gradient-to-r from-cyan-500 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-cyan-300 dark:focus:ring-cyan-800 font-medium rounded-lg text-sm px-4 py-2">
+              {texts.contactme}
+            </button>
+
+            <div className="relative flex items-center h-10">
+              <img className="w-10 h-10 rounded-full" src="/pictures/about.png" alt="Avatar" />
+              <span className="absolute bottom-0 left-7 w-3.5 h-3.5 bg-green-400 border-2 border-white rounded-full"></span>
+            </div>
+          </div>
         </div>
       )}
     </header>
