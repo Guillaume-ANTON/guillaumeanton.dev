@@ -55,11 +55,12 @@
       "mail": "your@mail.com",
       "message": "Your message",
       "button": "Send Message",
+      "mymail":"Mail",
       "phone": "Phone",
       "location": "Location",
       "txt": "Based in Madrid 🇪🇸",
-      "send": "✅Message sent!",
-      "error": "❌An error has occurred"  
+      "send": "✅ Message sent!",
+      "error": "❌ An error has occurred"  
     },
     "footer": {
       "contact": "Contact me"

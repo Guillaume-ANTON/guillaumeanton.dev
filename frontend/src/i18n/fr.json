@@ -52,13 +52,14 @@
       "firstname": "Prénom",
       "lastname": "Nom",
       "mail": "votre@mail.com",
+      "mymail":"Email",
       "message": "Votre message",
       "button": "Envoyer le message",
       "phone": "Téléphone",
       "location": "Localisation",
       "txt": "Basé à Madrid 🇪🇸",
-      "send": "✅Message envoyé!",
-      "error": "❌Une erreur est survenue"  
+      "send": "✅ Message envoyé!",
+      "error": "❌ Une erreur est survenue"  
     },
     "footer": {
       "contact": "Contactez-moi"

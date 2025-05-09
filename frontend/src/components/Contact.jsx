@@ -34,7 +34,7 @@ function Contact( {texts} ) {
       </div>
       <div className="max-w-6xl mx-auto px-6 lg:px-8 flex flex-col lg:flex-row gap-12">
     
-        {/* FORMULAIRE */}
+        {/* FORM */}
         <div className="bg-white rounded-xl shadow-md p-8 flex-1">
           <p className="text-sm text-blue-600 font-semibold">{texts.contact}</p>
           <h2 className="text-2xl font-bold text-gray-900 mb-2">{texts.title}</h2>
@@ -42,49 +42,49 @@ function Contact( {texts} ) {
             {texts.description}
           </p>
 
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div className="flex gap-4">
-              <input type="text" placeholder={texts.firstname} className="w-1/2 px-4 py-2 border rounded-md" />
-              <input type="text" placeholder={texts.lastname} className="w-1/2 px-4 py-2 border rounded-md" />
+              <input type="text" name="first" placeholder={texts.firstname} onChange={handleChange} value={form.first} className="w-1/2 px-4 py-2 border rounded-md" />
+              <input type="text" name="last" placeholder={texts.lastname} onChange={handleChange} value={form.last} className="w-1/2 px-4 py-2 border rounded-md" />
             </div>
-            <input type="email" placeholder={texts.mail} className="w-full px-4 py-2 border rounded-md" />
-            <textarea placeholder={texts.message} rows={4} className="w-full px-4 py-2 border rounded-md"></textarea>
+            <input type="email" name="email" placeholder={texts.mail} onChange={handleChange} value={form.email} className="w-full px-4 py-2 border rounded-md" />
+            <textarea placeholder={texts.message} name="message" rows={4} onChange={handleChange} value={form.message} className="w-full px-4 py-2 border rounded-md"></textarea>
+            {status && (
+              <div className="mt-4 text-center text-sm font-medium text-green-600">
+                {status}
+              </div>
+            )}
             <button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-md font-semibold">
               {texts.button}
             </button>
           </form>
         </div>
 
-        {/* INFOS & AVATAR */}
+        {/* INFO */}
         <div className="flex-1 flex flex-col justify-between gap-8">
         
-          {/* Avatar en haut */}
+          {/* Avatar */}
           <div className="bg-gray-100 rounded-xl p-6 flex justify-center items-center h-1/2">
             <img src="/pictures/contact.png" alt="Avatar" className="w-40 h-40" />
           </div>
 
-          {/* Bloc infos en bas */}
+          {/* INFOS */}
           <div className="bg-gray-100 text-white rounded-2xl p-4 space-y-3">
-          {/* Bloc Email */}
+          {/* MAIL */}
           <div className="flex items-center bg-gray-700 rounded-xl p-2 gap-2">
             <div className="bg-[#1E293B] p-3 rounded-full">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 4h16v16H4z" />
-                <path strokeLinecap="round" strokeLinejoin="round" d="M4 4l8 8 8-8" />
-              </svg>
+            <img src="https://img.icons8.com/ios-filled/50/ffffff/mail.png" alt="Téléphone" className="w-6 h-6" />
             </div>
             <div>
-              <p className="text-sm text-gray-200">Email</p>
+              <p className="text-sm text-gray-200">{texts.mymail}</p>
               <p className="font-semibold">anton.guillaume0gmail.com</p>
             </div>
           </div>
 
-          {/* Bloc Phone */}
+          {/* Phone */}
           <div className="flex items-center bg-gray-700 rounded-xl p-2 gap-2">
             <div className="bg-[#1E293B] p-3 rounded-full">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 5h2l3.6 7.59a1 1 0 001.68.09l4.24-5.3a1 1 0 011.48-.08l3.22 3.22a1 1 0 01-.08 1.48l-5.3 4.24a1 1 0 00.09 1.68L19 19h2" />
-              </svg>
+              <img src="https://img.icons8.com/ios-filled/50/ffffff/phone.png" alt="Téléphone" className="w-6 h-6" />
             </div>
             <div>
               <p className="text-sm text-gray-200">{texts.phone}</p>
@@ -92,12 +92,10 @@ function Contact( {texts} ) {
             </div>
           </div>
 
-          {/* Bloc Adresse */}
+          {/* Location */}
           <div className="flex items-center bg-gray-700 rounded-xl p-2 gap-2">
             <div className="bg-[#1E293B] p-3 rounded-full">
-              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 11c1.1046 0 2-.8954 2-2s-.8954-2-2-2-2 .8954-2 2 .8954 2 2 2zm0 0c3.866 0 7 3.134 7 7h-14c0-3.866 3.134-7 7-7z" />
-              </svg>
+              <img src="https://img.icons8.com/ios-filled/50/ffffff/home.png" alt="Téléphone" className="w-6 h-6" />
             </div>
             <div>
               <p className="text-sm text-gray-200">{texts.location}</p>

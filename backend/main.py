@@ -1,11 +1,24 @@
 from fastapi import FastAPI, HTTPException
-from pydantic import BaseModel
+from pydantic import BaseModel, EmailStr
 from fastapi.middleware.cors import CORSMiddleware
 from scraper import run_scraper 
 import uuid
 import requests
 from collections import Counter
 from datetime import datetime, timezone
+import smtplib
+from email.message import EmailMessage
+from dotenv import load_dotenv
+import os
+
+# Chargement des variables d'environnement
+load_dotenv()
+
+SMTP_HOST = os.getenv("SMTP_HOST")
+SMTP_PORT = int(os.getenv("SMTP_PORT", "587"))
+SMTP_USER = os.getenv("SMTP_USER")
+SMTP_PASSWORD = os.getenv("SMTP_PASSWORD")
+RECEIVER_EMAIL = os.getenv("RECEIVER_EMAIL")
 
 app = FastAPI()
 
@@ -17,19 +30,44 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# --- Contact Model & Endpoint ---
+class ContactForm(BaseModel):
+    first: str
+    last: str
+    email: EmailStr
+    phone: str | None = None
+    message: str
+
+@app.post("/api/contact")
+def handle_contact(form: ContactForm):
+    msg = EmailMessage()
+    msg["Subject"] = f"Nouveau message de {form.first} {form.last}"
+    msg["From"] = form.email
+    msg["To"] = RECEIVER_EMAIL
+
+    body = f"""
+Nom : {form.first} {form.last}
+Email : {form.email}
+
+Message :
+{form.message}
+"""
+    msg.set_content(body)
+
+    try:
+        with smtplib.SMTP(SMTP_HOST, SMTP_PORT) as server:
+            server.starttls()
+            server.login(SMTP_USER, SMTP_PASSWORD)
+            server.send_message(msg)
+        return {"detail": "Message envoyé avec succès"}
+    except Exception as e:
+        print("[❌] Erreur SMTP :", e)
+        raise HTTPException(status_code=500, detail="Erreur lors de l’envoi de l’e-mail.")
+
+# --- Scraper ---
 class ScrapeRequest(BaseModel):
     url: str
     tags: list[str]
-
-GITHUB_API = "https://api.github.com"
-
-class GitHubStats(BaseModel):
-    avatar_url: str
-    public_repos: int
-    total_stars: int
-    most_used_language: str
-    last_commit: str
-    languages_breakdown: dict
 
 @app.post("/api/scrape")
 async def scrape(data: ScrapeRequest):
@@ -45,6 +83,17 @@ async def scrape(data: ScrapeRequest):
 def download(file: str):
     from fastapi.responses import FileResponse
     return FileResponse(path=f"generated/{file}", filename=file)
+
+# --- GitHub Stats ---
+GITHUB_API = "https://api.github.com"
+
+class GitHubStats(BaseModel):
+    avatar_url: str
+    public_repos: int
+    total_stars: int
+    most_used_language: str
+    last_commit: str
+    languages_breakdown: dict
 
 @app.get("/api/github", response_model=GitHubStats)
 def analyze_github_user(username: str):
@@ -67,7 +116,6 @@ def analyze_github_user(username: str):
     most_used_language = language_counter.most_common(1)[0][0] if language_counter else "Unknown"
     languages_breakdown = dict(language_counter)
 
-    # Date du dernier commit pushé
     pushed_dates = [
         repo.get("pushed_at") for repo in repos_data if repo.get("pushed_at")
     ]
