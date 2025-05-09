@@ -8,6 +8,7 @@ import Aboutme from './components/Aboutme';
 import Skills from './components/Skills';
 import Projects from './components/Project';
 import Contact from './components/Contact';
+import Footer from './components/Footer'
 
 function App() {
   const [texts, setTexts] = useState(fr);
@@ -31,6 +32,7 @@ function App() {
       <Skills texts={texts.skills}/>
       <Projects texts={texts.projects} />
       <Contact texts={texts.contact}/>
+      <Footer texts={texts.footer}/>
     </>
   );
 }
