@@ -12,14 +12,14 @@ function Footer( {texts} ) {
           {/* Icônes réseaux */}
           <div className="flex space-x-4 mt-4 md:mt-0">
       <a
-        href="https://github.com/guillaumeanton"
+        href="https://github.com/Guillaume-ANTON"
         target="_blank"
         rel="noopener noreferrer"
       >
         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" className="w-6 h-6 hover:opacity-80" />
       </a>
       <a
-        href="https://linkedin.com/in/guillaumeanton"
+        href="https://www.linkedin.com/in/guillaume-anton/"
         target="_blank"
         rel="noopener noreferrer"
       >
